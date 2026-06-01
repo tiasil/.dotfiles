@@ -49,6 +49,7 @@
 (require 'ts-interface)
 (require 'ts-org)
 (require 'ts-dev)
+(require 'ts-md)
 
 ;; provisory
 (use-package rust-mode
