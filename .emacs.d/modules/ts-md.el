@@ -16,7 +16,7 @@
 ;;  - padding: 0 16px;
 ;;  - margin: 40px auto;
 ;;  - max-width: 1100px;
-(defvar ts-md--css-cmd-option
+(defvar ts-md--github-css-cmd-option
   (concat " --css="
 	  (expand-file-name "markdown/github-markdown-dark.css" ( ts-md--current-dir))))
 
@@ -26,7 +26,7 @@
 ;; Overrides the default Pandoc HTML template to add class="markdown-body"
 ;; to the <body> element, allowing correct rendering with GitHub-style
 ;; CSS (github-markdown.css).
-(defvar ts-md--template-cmd-option
+(defvar ts-md--pandoc-template-cmd-option
   (concat " --template="
 	  (expand-file-name "markdown/pandoc-html5.template" ( ts-md--current-dir))))
 
@@ -61,9 +61,9 @@
   :init
   (setq markdown-command
 	(concat "/usr/bin/pandoc -f gfm -t html5 --self-contained"
-		ts-md--css-cmd-option
-		ts-md--template-cmd-option
-		ts-md--include-in-header-cmd-option
+		ts-md--github-css-cmd-option
+		ts-md--pandoc-template-cmd-option
+		ts-md--mermaid-include-in-header-cmd-option
 		ts-md--mermaid-lua-filter-cmd-option))
   
   (setq browse-url-browser-function 'browse-url-generic
